@@ -100,6 +100,7 @@ Expected behavior:
 
 - Include the exact sitemap URL to submit.
 - Tell the user to verify `Success`, `Last read`, and discovered pages in Google Search Console.
+- Label unavailable Search Console indexing state as a `Remaining concern`, not an `Issue`, unless source/live evidence shows a crawl, index, canonical, sitemap, or robots defect.
 - Mark the final status `DONE_WITH_CONCERNS` if live Search Console state could not be verified.
 
 ## 8. Bundled Helper Evidence

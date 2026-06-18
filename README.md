@@ -4,7 +4,7 @@ A Codex skill for practical SEO publish-readiness checks, Google indexing readin
 
 The skill is designed for product sites, app landing pages, documentation sites, and static marketing sites. It turns SEO requests into source-backed and live-site-backed findings instead of generic advice.
 
-Current version: `0.4.3`. See [CHANGELOG.md](CHANGELOG.md) for release notes.
+Current version: `0.4.4`. See [CHANGELOG.md](CHANGELOG.md) for release notes.
 
 ## Installation
 
@@ -79,6 +79,7 @@ A good audit starts with evidence, not generic advice. Expect:
 
 - Findings ordered by severity.
 - Evidence from source files, live URLs, headers, rendered HTML, or Search Console when available.
+- `Remaining concern` items for unverified account/tool state, instead of presenting unavailable checks as source or live-site defects.
 - A compact Search Intent Map by default for SEO audits; skip it only for explicit technical-only checks or when there is no page/content surface to assess.
 - Concrete fixes and exact verification steps.
 - A final status: `DONE`, `DONE_WITH_CONCERNS`, `BLOCKED`, or `NEEDS_CONTEXT`.

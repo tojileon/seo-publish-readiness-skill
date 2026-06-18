@@ -84,7 +84,9 @@ Use this skill to turn SEO requests into evidence-backed fixes or a prioritized 
 
 ## Output Standard
 
-For reviews, lead with findings ordered by severity. Include:
+For reviews, lead with findings ordered by severity. Use `Issue` only for an actual defect, regression, mismatch, or meaningful SEO risk found in source or live evidence. Use `Remaining concern` for unverified external state or optional checks that need account/tool access, such as Search Console indexing state, URL Inspection, live query visibility, or Lighthouse/Core Web Vitals when the local tool is unavailable.
+
+For actionable findings, include:
 
 - `Issue`: concise problem.
 - `Evidence`: URL, file path, line, header, or rendered page observation.
@@ -92,11 +94,18 @@ For reviews, lead with findings ordered by severity. Include:
 - `Fix`: concrete action.
 - `Verify`: exact check after the fix.
 
+For remaining concerns, use:
+
+- `Remaining concern`: concise unverified state or follow-up check.
+- `Evidence`: what was verified and what could not be verified.
+- `Next action`: exact account/tool action or command needed.
+- `Verify`: expected success state.
+
 For implementation requests, make focused source changes, run targeted validation, inspect the live/deployed behavior when possible, and report anything that remains unverified.
 
 For SEO audits, publish-readiness audits, product-site audits, landing-page audits, sitemap/page-inventory audits, visible-content reviews, content strategy, search-term requests, keyword/page fit, focused SEO landing pages, live target-query checks, new-page recommendations, or broad page-strategy reviews, include a compact `Search Intent Map` table with `Search intent`, `Evidence`, `Existing page fit`, `Recommendation`, and `Confidence`. Treat it as the keyword/page-fit table: the goal is page-to-intent fit, not keyword stuffing. If Search Console or live search data is unavailable, still include site-derived or inferred rows and label the evidence honestly. Prefer modifying an existing strong page over creating a new page unless the intent is clearly distinct. Skip the map only when the user explicitly asks for technical-only checks or there is no page/content surface to assess.
 
-When the audit finds a public sitemap, do not leave Search Console as an implied follow-up. Either report the verified Search Console state or explicitly prompt the user to submit the exact live sitemap URL in Google Search Console and verify `Success`, `Last read`, and discovered pages after submission.
+When the audit finds a public sitemap, do not leave Search Console as an implied follow-up. Either report the verified Search Console state or add a `Remaining concern` that prompts the user to submit the exact live sitemap URL in Google Search Console and verify `Success`, `Last read`, and discovered pages after submission.
 
 End with one completion status:
 

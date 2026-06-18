@@ -2,6 +2,11 @@
 
 All notable changes to this skill are tracked here.
 
+## 0.4.4 - 2026-06-19
+
+- Clarified audit wording so unavailable Search Console, URL Inspection, live query visibility, or Lighthouse/Core Web Vitals checks are labeled as `Remaining concern` items instead of source/live-site `Issue` findings.
+- Updated Search Console handoff smoke coverage to preserve `DONE_WITH_CONCERNS` while avoiding false defect wording.
+
 ## 0.4.3 - 2026-06-19
 
 - Expanded `scripts/static_seo_audit.py` to report robots.txt allow/disallow state, recursive sitemap indexes, Open Graph/Twitter metadata, JSON-LD blocks and types, `hreflang`, viewport metadata, same-origin assets, JavaScript app signals, and missing-asset behavior.
