@@ -2,6 +2,12 @@
 
 All notable changes to this skill are tracked here.
 
+## 0.4.3 - 2026-06-19
+
+- Expanded `scripts/static_seo_audit.py` to report robots.txt allow/disallow state, recursive sitemap indexes, Open Graph/Twitter metadata, JSON-LD blocks and types, `hreflang`, viewport metadata, same-origin assets, JavaScript app signals, and missing-asset behavior.
+- Added standard-library unit tests for helper parsing, sitemap-index recursion, and robots rule handling.
+- Clarified that the no-dependency helper inspects HTTP/source HTML and should be paired with rendered desktop/mobile browser checks for JavaScript-heavy pages.
+
 ## 0.4.2 - 2026-06-19
 
 - Made the compact Search Intent Map the default keyword/page-fit table for SEO audits, launch-readiness audits, product-site audits, landing-page audits, page-inventory audits, and visible-content reviews.

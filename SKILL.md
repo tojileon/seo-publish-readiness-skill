@@ -18,7 +18,7 @@ Use this skill to turn SEO requests into evidence-backed fixes or a prioritized 
 ## Start With Truth
 
 1. Inspect the source first: page templates, route files, metadata helpers, sitemap/robots generation, static assets, and deployment config.
-2. If a public URL exists, verify the deployed site too. Separate "changed in source" from "live and indexable". For static/product sites, run `scripts/static_seo_audit.py <url> --max-pages 12` when network access is available, then use the output as evidence rather than as a substitute for judgment.
+2. If a public URL exists, verify the deployed site too. Separate "changed in source" from "live and indexable". For static/product sites, run `scripts/static_seo_audit.py <url> --max-pages 12` when network access is available, then use the output as evidence rather than as a substitute for judgment. The helper inspects HTTP responses and source HTML; when it reports JavaScript app signals or the site is JS-heavy, also verify rendered desktop and mobile DOM with browser tooling.
 3. For Google-specific or current guidance, use official Google Search documentation first. Read `references/google-search-seo-guide.md` when detailed rules or source links matter.
 4. For static hosting, CDN redirects, sitemap submission, or deployment checks, read `references/static-site-seo-checklist.md`.
 5. For JavaScript rendering, mobile-first indexing, page experience, Core Web Vitals, international URLs, ecommerce, or local-business SEO, read `references/advanced-seo-checks.md`.
@@ -37,7 +37,7 @@ Use this skill to turn SEO requests into evidence-backed fixes or a prioritized 
    - Confirm public pages return expected `2xx` statuses over HTTPS.
    - Confirm redirect targets and status codes are intentional.
    - Verify crawlable internal links use real `<a href>` URLs with descriptive anchor text.
-   - Inspect `robots.txt` and sitemap locations; sitemap `<loc>` entries should use canonical, live URLs.
+   - Inspect `robots.txt` rules, sitemap locations, and sitemap indexes; sitemap `<loc>` entries should use canonical, live URLs.
    - Check page-level and header-level index controls: `<meta name="robots">`, Googlebot-specific meta tags, and `X-Robots-Tag` headers must not block pages intended for indexing.
 
 3. Check rendered and mobile search surfaces.
@@ -75,7 +75,7 @@ Use this skill to turn SEO requests into evidence-backed fixes or a prioritized 
    - Validate with Google's Rich Results Test when rich-result eligibility matters.
 
 8. Verify publish readiness.
-   - Check live status codes, content types, cache headers, canonical tags, index directives, sitemap contents, and robots sitemap hints.
+   - Check live status codes, content types, cache headers, canonical tags, index directives, sitemap contents, robots sitemap hints, social metadata, JSON-LD, `hreflang`, viewport metadata, and missing-page or missing-asset behavior.
    - Check for stale helper files, local OS metadata files, temporary files, or old generated pages that are still publicly served.
    - Check that deleted or nonexistent HTML and asset URLs return clean `404` or `410` responses; flag static-hosting `403` XML responses for missing keys.
    - For multilingual or multi-regional sites, verify `hreflang` clusters, canonical alignment, language/region URL discoverability, and user-visible links for changing language or region.

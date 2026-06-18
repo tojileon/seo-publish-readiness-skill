@@ -4,7 +4,7 @@ A Codex skill for practical SEO publish-readiness checks, Google indexing readin
 
 The skill is designed for product sites, app landing pages, documentation sites, and static marketing sites. It turns SEO requests into source-backed and live-site-backed findings instead of generic advice.
 
-Current version: `0.4.2`. See [CHANGELOG.md](CHANGELOG.md) for release notes.
+Current version: `0.4.3`. See [CHANGELOG.md](CHANGELOG.md) for release notes.
 
 ## Installation
 
@@ -39,7 +39,7 @@ For best results, provide both the repo path and the public URL. The skill is de
 - Structured data review, including vertical-specific caution for ecommerce, local, and other rich-result types
 - Google Search Console verification steps
 - Static hosting and CDN publish-readiness checks
-- A bundled no-dependency same-origin audit helper for live static/product sites
+- A bundled no-dependency same-origin audit helper for live static/product sites, including recursive sitemap indexes, robots rule checks, social metadata, JSON-LD, `hreflang`, viewport, and missing-asset behavior
 - Focused landing pages for distinct search intent
 - Safe public documentation that avoids private infrastructure values
 
@@ -69,7 +69,9 @@ For a public static/product site, Codex can run:
 scripts/static_seo_audit.py https://example.com/ --max-pages 12
 ```
 
-The helper checks same-origin pages only. It captures live evidence for `robots.txt`, sitemap hints, sitemap status, page status, content type, title, description, canonical, robots directives, H1 count, image alt text, internal links, and missing-URL behavior. Use `--format json` when another script or report needs structured output.
+The helper checks same-origin pages only. It captures live evidence for `robots.txt`, sitemap hints and sitemap indexes, page status, content type, title, description, canonical, robots directives, robots.txt allow/disallow state, viewport, Open Graph/Twitter metadata, JSON-LD types, `hreflang`, H1 count, image alt text, internal links, assets, and missing-page or missing-asset behavior. Use `--format json` when another script or report needs structured output.
+
+The helper intentionally inspects HTTP responses and source HTML without browser dependencies. For JavaScript-heavy sites, use its JavaScript app signals as a prompt to compare source HTML with rendered desktop and mobile DOM using browser tooling.
 
 ## Expected Output
 
@@ -95,6 +97,12 @@ test "$rc" -eq 0
 ```
 
 Then run the behavior smoke matrix in [SMOKE_TEST.md](SMOKE_TEST.md). The validator only checks packaging; the smoke matrix checks the skill's crawl-safety, structured-data, Search Intent Map, and Search Console behavior.
+
+Run the helper unit tests:
+
+```bash
+python3 -m unittest tests/test_static_seo_audit.py
+```
 
 Optionally smoke test the bundled helper against a local or disposable static site:
 

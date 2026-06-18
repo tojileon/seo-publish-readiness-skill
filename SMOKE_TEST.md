@@ -115,7 +115,8 @@ Expected behavior:
 - Run or recommend running `scripts/static_seo_audit.py https://example.com/ --max-pages 12` when network access is available.
 - Treat the helper output as evidence, not as the full audit by itself.
 - Keep the crawl same-origin and do not follow cross-origin sitemap or page links without explicit approval.
-- Include exact live observations for status, canonical, robots directives, sitemap/robots, and missing-URL behavior when available.
+- Include exact live observations for status, canonical, robots directives, robots.txt allow/disallow state, sitemap/robots, sitemap indexes, viewport, Open Graph/Twitter metadata, JSON-LD, `hreflang`, and missing-page or missing-asset behavior when available.
+- If the helper reports JavaScript app signals, use browser tooling to compare source HTML with rendered desktop and mobile DOM, or explicitly mark that rendered/mobile verification remains unverified.
 - Include a compact Search Intent Map unless the user explicitly says this is a technical-only check or there is no meaningful page/content surface.
 
 ## 9. Rendered And Mobile Surface
@@ -147,3 +148,17 @@ Expected behavior:
 - Recommend `Product`, `Offer`, merchant listing, shipping, return-policy, or review markup only when it matches visible page content and current Google requirements.
 - Do not use generic `Organization`/`WebSite` advice as a substitute for product-page checks.
 - Flag faceted navigation, variants, sort parameters, or pagination as crawl/canonical risks when present.
+
+## 11. Helper Unit Tests
+
+Prompt:
+
+```text
+Use $seo-publish-readiness to maintain the bundled static SEO audit helper after changing parser, robots, sitemap, or output behavior.
+```
+
+Expected behavior:
+
+- Run `python3 -m unittest tests/test_static_seo_audit.py`.
+- Keep tests standard-library only.
+- Cover at least parser extraction, sitemap-index recursion, and robots rule evaluation when those behaviors change.
