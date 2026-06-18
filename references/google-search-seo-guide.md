@@ -13,6 +13,7 @@ Use this reference when the task needs Google-specific SEO guidance. Prefer the 
 - JavaScript SEO basics: https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics
 - Mobile-first indexing: https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing
 - Core Web Vitals: https://developers.google.com/search/docs/appearance/core-web-vitals
+- FAQ rich result removal: https://developers.google.com/search/updates#removing-faq-rich-result
 
 ## Working Principles
 
@@ -55,7 +56,7 @@ Use this reference when the task needs Google-specific SEO guidance. Prefer the 
 - JSON-LD is usually the easiest format to maintain.
 - Structured data should not describe hidden or misleading page-specific content. Entity-level markup should match the public brand, site, app, or organization identity.
 - Prefer conservative types that match the page: `Organization`, `WebSite`, `SoftwareApplication`, and `BreadcrumbList`.
-- Treat `FAQPage` as restricted, not generic. Google narrowed FAQ rich-result visibility to well-known authoritative government and health sites, so ordinary product or marketing sites should not add FAQ structured data just because they have visible FAQ copy.
+- Do not recommend `FAQPage` JSON-LD for Google rich-result visibility. Google no longer shows FAQ rich results in Search as of May 7, 2026, so ordinary sites should not add FAQ structured data just because they have visible FAQ copy.
 - Validate with Google's Rich Results Test and inspect Search Console enhancement reports when available.
 - Structured data can help Google understand content, but it does not guarantee rich results.
 

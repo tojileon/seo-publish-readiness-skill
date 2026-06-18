@@ -71,7 +71,7 @@ Use this skill to turn SEO requests into evidence-backed fixes or a prioritized 
    - Use JSON-LD conservatively. Do not mark up hidden or misleading page-specific content; entity markup must match the public brand, site, app, or organization identity.
    - Common safe types for product/app sites: `Organization`, `WebSite`, `SoftwareApplication`, and `BreadcrumbList`.
    - For ecommerce, local-business, article, event, course, recipe, or job pages, use the page-specific Google Search documentation before recommending markup; required and recommended properties vary by rich-result type.
-   - Use `FAQPage` only when the site is eligible for FAQ rich results under current Google guidance, such as well-known authoritative government or health sites. For ordinary product or marketing sites, visible FAQs can still help users, but FAQ structured data should not be treated as a generic SEO win.
+   - Do not recommend `FAQPage` JSON-LD for Google rich-result visibility. Google no longer shows FAQ rich results in Search as of May 7, 2026; visible FAQs can still help users, but FAQ structured data should not be treated as a Google SEO win.
    - Validate with Google's Rich Results Test when rich-result eligibility matters.
 
 8. Verify publish readiness.

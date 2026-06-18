@@ -70,6 +70,6 @@ Useful existing-page changes include:
 - Clearer title and meta description for the page's primary intent.
 - H1 and H2 language that mirrors real user jobs without stuffing keywords.
 - Examples and use cases that prove the product fits the search intent.
-- FAQ entries only when they answer real questions visible on the page. Do not add FAQ structured data by default; Google restricts FAQ rich-result visibility to a narrow set of authoritative government and health sites.
+- FAQ entries only when they answer real questions visible on the page. Do not add FAQ structured data for Google SEO benefit; Google no longer shows FAQ rich results in Search.
 - Internal links from hub pages using user-facing anchor text.
 - Alt text that describes product screenshots or proof, not a keyword list.

@@ -21,13 +21,14 @@ Expected behavior:
 Prompt:
 
 ```text
-Use $seo-publish-readiness to audit a SaaS marketing page that has visible FAQs but is not a government or health authority.
+Use $seo-publish-readiness to audit a SaaS marketing page that has visible FAQs and asks whether FAQPage JSON-LD will help Google SEO.
 ```
 
 Expected behavior:
 
 - It may recommend useful visible FAQ copy for users.
-- It must not recommend `FAQPage` JSON-LD as a generic SEO improvement.
+- It must not recommend `FAQPage` JSON-LD for Google rich-result visibility or as a generic SEO improvement.
+- It should state that Google no longer shows FAQ rich results in Search, while avoiding overclaiming about non-Google consumers of schema markup.
 - If structured data is discussed, prefer page-matched types such as `Organization`, `WebSite`, `SoftwareApplication`, or `BreadcrumbList`.
 
 ## 3. Technical-Only Audit Scope

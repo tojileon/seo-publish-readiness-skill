@@ -4,7 +4,7 @@ A Codex skill for practical SEO publish-readiness checks, Google indexing readin
 
 The skill is designed for product sites, app landing pages, documentation sites, and static marketing sites. It turns SEO requests into source-backed and live-site-backed findings instead of generic advice.
 
-Current version: `0.4.4`. See [CHANGELOG.md](CHANGELOG.md) for release notes.
+Current version: `0.4.5`. See [CHANGELOG.md](CHANGELOG.md) for release notes.
 
 ## Installation
 
@@ -99,10 +99,10 @@ test "$rc" -eq 0
 
 Then run the behavior smoke matrix in [SMOKE_TEST.md](SMOKE_TEST.md). The validator only checks packaging; the smoke matrix checks the skill's crawl-safety, structured-data, Search Intent Map, and Search Console behavior.
 
-Run the helper unit tests:
+Run the unit tests:
 
 ```bash
-python3 -m unittest tests/test_static_seo_audit.py
+python3 -m unittest discover -s tests
 ```
 
 Optionally smoke test the bundled helper against a local or disposable static site:

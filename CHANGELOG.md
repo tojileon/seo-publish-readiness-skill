@@ -2,6 +2,11 @@
 
 All notable changes to this skill are tracked here.
 
+## 0.4.5 - 2026-06-19
+
+- Updated FAQ structured-data guidance for Google's May 7, 2026 removal of FAQ rich results from Search.
+- Added a documentation regression test for version alignment and stale FAQPage guidance.
+
 ## 0.4.4 - 2026-06-19
 
 - Clarified audit wording so unavailable Search Console, URL Inspection, live query visibility, or Lighthouse/Core Web Vitals checks are labeled as `Remaining concern` items instead of source/live-site `Issue` findings.
@@ -35,7 +40,7 @@ All notable changes to this skill are tracked here.
 ## 0.3.2 - 2026-06-18
 
 - Clarified safe URL traversal: same-origin URLs from source, sitemaps, robots, redirects, canonicals, and normal links may be crawled; cross-origin URLs need user approval.
-- Removed `FAQPage` from generic structured-data recommendations and documented Google's restricted FAQ rich-result eligibility.
+- Removed `FAQPage` from generic structured-data recommendations. This guidance was later updated in 0.4.5 after Google removed FAQ rich results from Search.
 - Scoped the Search Intent Map to content strategy, keyword/page-fit, and broad page-strategy work instead of technical-only publish-readiness checks.
 - Replaced product-specific examples with neutral examples suitable for public release.
 - Added a behavior smoke-test matrix for crawl safety, structured data, Search Intent Map scope, and Search Console handoff behavior.
