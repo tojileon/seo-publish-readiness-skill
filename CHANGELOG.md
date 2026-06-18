@@ -2,6 +2,25 @@
 
 All notable changes to this skill are tracked here.
 
+## 0.4.2 - 2026-06-19
+
+- Made the compact Search Intent Map the default keyword/page-fit table for SEO audits, launch-readiness audits, product-site audits, landing-page audits, page-inventory audits, and visible-content reviews.
+- Clarified that the Search Intent Map should be skipped only for explicit technical-only checks or when there is no page/content surface to assess.
+- Added smoke coverage to catch regressions where a normal SEO readiness audit omits the keyword/page-fit table.
+
+## 0.4.1 - 2026-06-19
+
+- Require a compact Search Intent Map when a technical audit includes focused SEO landing pages or live target-query checks.
+- Added smoke coverage for static launch audits that include focused search-intent pages inside the sitemap.
+
+## 0.4.0 - 2026-06-19
+
+- Added `scripts/static_seo_audit.py`, a no-dependency same-origin live-site helper for robots, sitemap, status, content type, canonical, metadata, H1, image alt, internal-link, and missing-URL checks.
+- Added advanced guidance for JavaScript-rendered pages, mobile-first indexing, Core Web Vitals, page experience, multilingual or multi-regional sites, ecommerce pages, and local-business pages.
+- Updated the static-site checklist to require representative template coverage and route-specific metadata checks for static app hosts.
+- Expanded the core workflow so broad audits include rendered/mobile/page-experience risks without forcing content strategy into technical-only reviews.
+- Added smoke-test scenarios for the helper script, rendered/mobile checks, and vertical-specific structured data.
+
 ## 0.3.2 - 2026-06-18
 
 - Clarified safe URL traversal: same-origin URLs from source, sitemaps, robots, redirects, canonicals, and normal links may be crawled; cross-origin URLs need user approval.

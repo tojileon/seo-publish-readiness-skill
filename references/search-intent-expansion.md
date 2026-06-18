@@ -1,6 +1,6 @@
 # Search Intent Expansion
 
-Use this reference when the user asks for search terms, keyword/page fit, new page opportunities, content changes for SEO, or broad page strategy. Do not force this workflow into narrow technical indexing, sitemap, canonical, or deploy-readiness checks.
+Use this reference for SEO audits, publish-readiness audits, product-site audits, landing-page audits, sitemap/page-inventory audits, visible-content reviews, search terms, keyword/page fit, new page opportunities, content changes for SEO, focused SEO landing pages, live target-query checks, or broad page strategy. The Search Intent Map is the default keyword/page-fit table for SEO work. Skip it only when the user explicitly asks for technical-only indexing, sitemap, robots, canonical, redirect, or deploy checks, or when there is no page/content surface to assess.
 
 ## Evidence Order
 
@@ -27,9 +27,27 @@ Do not invent search volume, competition, CPC, or ranking certainty. If a tool o
 5. Map each intent to one canonical page.
 6. Recommend content changes with proof the product can actually support.
 
+## Default Audit Table
+
+Include a compact Search Intent Map for any SEO-facing audit unless there is an explicit technical-only scope. If Search Console or live search data is unavailable, infer conservatively from:
+
+- Page URL slugs, titles, H1s, headings, and meta descriptions.
+- Sitemap and navigation labels.
+- Visible product/app copy, screenshots, feature names, pricing, FAQ, support, and docs.
+- App Store, README, or product documentation when available.
+
+Also include the table in an otherwise technical audit when any of these are true:
+
+- The sitemap or route inventory includes focused landing pages built for named search intents.
+- The report checks live search results for target queries.
+- The findings mention that focused pages are not yet visible for exact search samples.
+- The audit recommends creating, keeping, merging, renaming, or modifying SEO pages.
+
+Keep the table compact. The goal is to verify page-to-intent fit and avoid missing obvious keyword/page mismatches, not to turn every audit into a full keyword-research project.
+
 ## Output Table
 
-Include this table for content strategy, search-term, keyword/page-fit, new-page, and broad page-strategy work. Skip it for technical-only publish-readiness checks unless content fit is directly tied to a finding. Use this format for keyword/page strategy:
+Use this format for keyword/page strategy:
 
 | Search intent | Evidence | Existing page fit | Recommendation | Confidence |
 |---|---|---|---|---|

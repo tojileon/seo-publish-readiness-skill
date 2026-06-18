@@ -41,10 +41,25 @@ Use $seo-publish-readiness to check only sitemap, robots.txt, canonical URLs, re
 Expected behavior:
 
 - Produce technical findings and verification steps.
-- Do not include a Search Intent Map unless content fit directly explains a technical finding.
+- Do not include a Search Intent Map because the user explicitly asked to check only technical indexing signals and did not put page/content fit in scope.
 - Mention content/page strategy as optional only if it would materially change the launch decision.
 
-## 4. Content Strategy Scope
+## 4. Default Keyword/Page-Fit Table
+
+Prompt:
+
+```text
+Use $seo-publish-readiness to audit this product site for Google SEO readiness before launch.
+```
+
+Expected behavior:
+
+- Include a compact Search Intent Map even though the prompt did not explicitly ask for keywords.
+- Infer rows from page URLs, titles, H1s, sitemap entries, visible copy, product/app copy, and live search or Search Console data when available.
+- Label inferred evidence honestly when query data is unavailable.
+- Keep the table focused on page-to-intent fit, not keyword stuffing or invented search volume.
+
+## 5. Content Strategy Scope
 
 Prompt:
 
@@ -58,7 +73,22 @@ Expected behavior:
 - Label inferred evidence honestly when Search Console or live search data is unavailable.
 - Prefer improving a strong existing page unless the intent is distinct and can be satisfied with useful visible content.
 
-## 5. Search Console Handoff
+## 6. Technical Audit With Focused SEO Pages
+
+Prompt:
+
+```text
+Use $seo-publish-readiness to audit a static app site for launch. The sitemap has /medication-reminder-app.html, /adhd-reminder-app.html, and /persistent-reminder-app.html. Also check whether exact search samples surface those pages.
+```
+
+Expected behavior:
+
+- Produce technical findings and verification steps.
+- Include a compact Search Intent Map because focused SEO pages and target-query checks are in scope.
+- Label evidence honestly when Search Console data is unavailable and live search samples do not show the pages yet.
+- Avoid expanding into a full keyword-research report unless the user asks for content strategy.
+
+## 7. Search Console Handoff
 
 Prompt:
 
@@ -71,3 +101,49 @@ Expected behavior:
 - Include the exact sitemap URL to submit.
 - Tell the user to verify `Success`, `Last read`, and discovered pages in Google Search Console.
 - Mark the final status `DONE_WITH_CONCERNS` if live Search Console state could not be verified.
+
+## 8. Bundled Helper Evidence
+
+Prompt:
+
+```text
+Use $seo-publish-readiness to audit a public static app site at https://example.com and include live technical evidence.
+```
+
+Expected behavior:
+
+- Run or recommend running `scripts/static_seo_audit.py https://example.com/ --max-pages 12` when network access is available.
+- Treat the helper output as evidence, not as the full audit by itself.
+- Keep the crawl same-origin and do not follow cross-origin sitemap or page links without explicit approval.
+- Include exact live observations for status, canonical, robots directives, sitemap/robots, and missing-URL behavior when available.
+- Include a compact Search Intent Map unless the user explicitly says this is a technical-only check or there is no meaningful page/content surface.
+
+## 9. Rendered And Mobile Surface
+
+Prompt:
+
+```text
+Use $seo-publish-readiness to review a React landing page where titles, canonicals, and page copy are set after client-side rendering.
+```
+
+Expected behavior:
+
+- Compare source HTML with rendered DOM when browser tooling is available.
+- Check direct deep links, not only in-app navigation after the homepage loads.
+- Check the mobile viewport or explicitly mark mobile-first indexing checks unverified.
+- Report Core Web Vitals/page-experience concerns as launch-readiness risks without promising ranking gains.
+
+## 10. Vertical-Specific Structured Data
+
+Prompt:
+
+```text
+Use $seo-publish-readiness to audit an ecommerce product page with visible price, availability, reviews, shipping, and returns.
+```
+
+Expected behavior:
+
+- Read or apply the advanced SEO guidance for ecommerce and product structured data.
+- Recommend `Product`, `Offer`, merchant listing, shipping, return-policy, or review markup only when it matches visible page content and current Google requirements.
+- Do not use generic `Organization`/`WebSite` advice as a substitute for product-page checks.
+- Flag faceted navigation, variants, sort parameters, or pagination as crawl/canonical risks when present.

@@ -10,6 +10,9 @@ Use this reference when the task needs Google-specific SEO guidance. Prefer the 
 - Sitemaps: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
 - Structured data introduction: https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data
 - AI features and your website: https://developers.google.com/search/docs/fundamentals/ai-optimization-guide
+- JavaScript SEO basics: https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics
+- Mobile-first indexing: https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing
+- Core Web Vitals: https://developers.google.com/search/docs/appearance/core-web-vitals
 
 ## Working Principles
 
@@ -19,6 +22,9 @@ Use this reference when the task needs Google-specific SEO guidance. Prefer the 
 - Build secure, fast, accessible, mobile-friendly pages. Technical SEO and user experience overlap.
 - Use people-first content: useful, original, trustworthy pages for real users before search engines.
 - Google says optimization for AI search features remains rooted in core Search quality and ranking systems; do not treat "AI SEO" as a separate trick.
+- Google can process JavaScript, but rendered output still matters; check the rendered DOM when important search signals are inserted client-side.
+- Google primarily uses the mobile version of content for indexing and ranking, so mobile pages need equivalent important content and metadata.
+- Core Web Vitals measure real-world loading, interactivity, and visual stability; good scores support user experience and can matter for Search, but they do not guarantee rankings.
 
 ## Crawlability And Links
 
@@ -27,6 +33,7 @@ Use this reference when the task needs Google-specific SEO guidance. Prefer the 
 - Avoid relying only on JavaScript-only interactions, forms, or search boxes for discoverability of core pages.
 - Ensure important resources are not blocked from Googlebot when they are needed to render or understand the page.
 - Check page-level and HTTP header index controls. Important pages should not be blocked by `<meta name="robots">`, Googlebot-specific meta tags, or `X-Robots-Tag` headers.
+- For JavaScript-rendered pages, inspect direct URL loads and rendered HTML for route-specific titles, canonicals, links, structured data, and visible copy.
 
 ## Canonical URLs And Duplicates
 

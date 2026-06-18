@@ -41,7 +41,14 @@ Each indexable page should have:
 
 ## Live Hosting Checks
 
-Run targeted checks against the public URL:
+Run the bundled same-origin helper first when network access is available:
+
+```bash
+scripts/static_seo_audit.py https://example.com/ --max-pages 12
+scripts/static_seo_audit.py https://example.com/ --max-pages 12 --format json
+```
+
+Then run targeted checks against any URLs the helper does not cover:
 
 ```bash
 curl -sSI https://example.com/
@@ -55,7 +62,7 @@ curl -sSI https://example.com/assets/not-there.png
 Verify:
 
 - HTTPS works.
-- Canonical pages return `2xx`.
+- Canonical pages and representative deep links return `2xx`.
 - Redirects use intentional `301`, `308`, `302`, or `307` statuses.
 - `Content-Type` is correct for HTML, XML, CSS, JS, images, and icons.
 - `X-Robots-Tag` headers and robots meta tags do not block indexable pages.
@@ -63,6 +70,7 @@ Verify:
 - The sitemap is public XML and lists canonical live URLs.
 - `robots.txt` does not block indexable pages and points to the right sitemap.
 - Missing pages and assets return `404` or `410`, not static-hosting `403` XML responses.
+- Static app hosts serve route-specific metadata on direct loads; client-side navigation after the homepage is not enough.
 
 ## Static File Hygiene
 
@@ -81,6 +89,19 @@ Before publishing or declaring success:
 - Confirm Search Console reports `Success`, a recent `Last read` date, and a discovered page count that matches expectations.
 - Use URL Inspection for the homepage and the highest-priority focused page after major SEO changes.
 - If Search Console access is unavailable, leave the user with the exact sitemap URL to submit and the expected success checks instead of a vague "submit sitemap" reminder.
+
+## Template Coverage
+
+For sites with many generated pages, inspect at least one representative URL from each template type:
+
+- Homepage or root landing page.
+- Product/app/feature page.
+- Content article, guide, or documentation page.
+- Focused landing page created for a specific search intent.
+- Legal/support/contact page when it is linked in navigation or footer.
+- Multilingual, location, category, product, or faceted page when those templates exist.
+
+Report which templates were checked and which were not. Do not imply full-site coverage from a one-page sample.
 
 ## Common Findings
 
