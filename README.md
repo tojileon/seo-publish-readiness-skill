@@ -84,9 +84,9 @@ test "$rc" -eq 0
 
 Then run the behavior smoke matrix in [SMOKE_TEST.md](SMOKE_TEST.md). The validator only checks packaging; the smoke matrix checks the skill's crawl-safety, structured-data, Search Intent Map, and Search Console behavior.
 
-## Before Public Release
+## Release Maintenance
 
-Before changing this repo's visibility to public:
+Before publishing a new version:
 
 - Run the skill validator.
 - Run the behavior smoke matrix.
