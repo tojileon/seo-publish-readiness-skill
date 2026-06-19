@@ -18,10 +18,10 @@ Use this skill to turn SEO requests into evidence-backed fixes or a prioritized 
 ## Start With Truth
 
 1. Inspect the source first: page templates, route files, metadata helpers, sitemap/robots generation, static assets, and deployment config.
-2. If a public URL exists, verify the deployed site too. Separate "changed in source" from "live and indexable". For static/product sites, run `scripts/static_seo_audit.py <url> --max-pages 12` when network access is available, then use the output as evidence rather than as a substitute for judgment. The helper inspects HTTP responses and source HTML; when it reports JavaScript app signals or the site is JS-heavy, also verify rendered desktop and mobile DOM with browser tooling.
+2. If a public URL exists, verify the deployed site too. Separate "changed in source" from "live and indexable". For static/product sites, run `scripts/static_seo_audit.py <url> --max-pages 12` when network access is available, then use the output as evidence rather than as a substitute for judgment. The helper inspects HTTP responses and source HTML; when it reports JavaScript app signals or the site is JS-heavy, run `node scripts/rendered_seo_audit.mjs <url> --format json` when Playwright is available, or otherwise verify rendered desktop and mobile DOM with browser tooling and mark that evidence explicitly.
 3. For Google-specific or current guidance, use official Google Search documentation first. Read `references/google-search-seo-guide.md` when detailed rules or source links matter.
 4. For static hosting, CDN redirects, sitemap submission, or deployment checks, read `references/static-site-seo-checklist.md`.
-5. For JavaScript rendering, mobile-first indexing, page experience, Core Web Vitals, international URLs, ecommerce, or local-business SEO, read `references/advanced-seo-checks.md`.
+5. For JavaScript rendering, mobile-first indexing, page experience, Core Web Vitals, international URLs, ecommerce, or local-business SEO, read `references/advanced-seo-checks.md`. For PageSpeed/Core Web Vitals evidence on a public URL, run `python3 scripts/pagespeed_insights.py <url> --strategy mobile` when network access is available, and treat unavailable field data as a remaining concern rather than a defect.
 6. For SEO audits, launch-readiness reviews, product-site reviews, landing-page reviews, page-inventory reviews, content reviews, search visibility checks, keyword/page fit, focused SEO pages, or live checks of target queries, read `references/search-intent-expansion.md`. Include a compact Search Intent Map by default unless the user explicitly asks for technical-only indexing/sitemap/canonical checks or there is no page/content surface to assess.
 7. Do not expose secrets or private infrastructure values in docs, commits, screenshots, examples, issue comments, or final answers.
 
@@ -42,8 +42,10 @@ Use this skill to turn SEO requests into evidence-backed fixes or a prioritized 
 
 3. Check rendered and mobile search surfaces.
    - For JavaScript-heavy pages, compare source HTML with rendered DOM; important text, links, titles, canonicals, robots tags, and structured data must exist in the rendered page Google can process.
+   - Prefer `node scripts/rendered_seo_audit.mjs <url> --format json` for direct source-vs-rendered and desktop-vs-mobile evidence when Playwright is available. If Playwright is unavailable, use browser tooling manually and say which surfaces were checked.
    - Check mobile viewport content parity when mobile and desktop render differently; mobile-first indexing means missing mobile content can become missing indexed content.
    - Treat Core Web Vitals and page experience as launch-readiness signals: report obviously poor LCP, INP, CLS, HTTPS, mobile usability, or intrusive interstitial issues, but do not promise ranking gains from scores alone.
+   - When page experience is in scope, use `python3 scripts/pagespeed_insights.py <url> --strategy mobile` for PageSpeed/Lighthouse evidence if available; label lab data and field data separately.
 
 4. Review on-page search signals.
    - One clear H1 per page, useful title, useful meta description, self-referencing canonical, and meaningful Open Graph/Twitter metadata.

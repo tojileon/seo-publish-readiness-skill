@@ -2,6 +2,12 @@
 
 All notable changes to this skill are tracked here.
 
+## 0.4.6 - 2026-06-19
+
+- Added `scripts/rendered_seo_audit.mjs`, an optional Playwright helper for source-vs-rendered and desktop-vs-mobile SEO surface checks.
+- Added `scripts/pagespeed_insights.py`, a standard-library helper for PageSpeed Insights, Lighthouse category scores, field data, lab metrics, and top performance opportunities.
+- Updated workflow docs and smoke coverage so JavaScript, mobile-first, and PageSpeed checks produce concrete evidence instead of only manual follow-up wording.
+
 ## 0.4.5 - 2026-06-19
 
 - Updated FAQ structured-data guidance for Google's May 7, 2026 removal of FAQ rich results from Search.

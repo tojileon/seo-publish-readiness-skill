@@ -1,4 +1,4 @@
 interface:
   display_name: "SEO Publish Readiness"
   short_description: "Audit Google indexing readiness"
-  default_prompt: "Use $seo-publish-readiness to check this site for Google indexing and publish readiness; use the live audit helper when a public URL exists, verify rendered/mobile DOM when JavaScript signals appear, and include the Search Intent Map by default unless this is explicitly technical-only."
+  default_prompt: "Use $seo-publish-readiness to check this site for Google indexing and publish readiness; use the live audit helper when a public URL exists, verify rendered/mobile DOM when JavaScript signals appear, run PageSpeed evidence when page experience is in scope, and include the Search Intent Map by default unless this is explicitly technical-only."

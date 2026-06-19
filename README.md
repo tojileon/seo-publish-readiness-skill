@@ -4,7 +4,7 @@ A Codex skill for practical SEO publish-readiness checks, Google indexing readin
 
 The skill is designed for product sites, app landing pages, documentation sites, and static marketing sites. It turns SEO requests into source-backed and live-site-backed findings instead of generic advice.
 
-Current version: `0.4.5`. See [CHANGELOG.md](CHANGELOG.md) for release notes.
+Current version: `0.4.6`. See [CHANGELOG.md](CHANGELOG.md) for release notes.
 
 ## Installation
 
@@ -40,6 +40,8 @@ For best results, provide both the repo path and the public URL. The skill is de
 - Google Search Console verification steps
 - Static hosting and CDN publish-readiness checks
 - A bundled no-dependency same-origin audit helper for live static/product sites, including recursive sitemap indexes, robots rule checks, social metadata, JSON-LD, `hreflang`, viewport, and missing-asset behavior
+- An optional Playwright rendered/mobile helper for source-vs-rendered and desktop-vs-mobile SEO evidence
+- A no-dependency PageSpeed Insights helper for mobile/desktop Lighthouse and field-data evidence when the public API is reachable
 - Focused landing pages for distinct search intent
 - Safe public documentation that avoids private infrastructure values
 
@@ -73,6 +75,22 @@ The helper checks same-origin pages only. It captures live evidence for `robots.
 
 The helper intentionally inspects HTTP responses and source HTML without browser dependencies. For JavaScript-heavy sites, use its JavaScript app signals as a prompt to compare source HTML with rendered desktop and mobile DOM using browser tooling.
 
+For JavaScript-heavy pages where Playwright is available, Codex can run:
+
+```bash
+node scripts/rendered_seo_audit.mjs https://example.com/ --format json
+```
+
+This optional helper compares source HTML, rendered desktop DOM, and rendered mobile DOM for title, description, canonical, robots meta, viewport, H1s, JSON-LD, `hreflang`, body text length, crawlable same-origin links, and image alt text.
+
+For page-experience evidence on a public URL, Codex can run:
+
+```bash
+python3 scripts/pagespeed_insights.py https://example.com/ --strategy mobile
+```
+
+This helper calls the PageSpeed Insights API and reports Lighthouse category scores, field data when available, lab metrics, and top opportunities. If unauthenticated quota is blocked, pass `--api-key` or use the PageSpeed Insights web UI. Treat lab-only results as launch-readiness evidence, not a guaranteed ranking outcome.
+
 ## Expected Output
 
 A good audit starts with evidence, not generic advice. Expect:
@@ -103,6 +121,8 @@ Run the unit tests:
 
 ```bash
 python3 -m unittest discover -s tests
+python3 -m py_compile scripts/static_seo_audit.py scripts/pagespeed_insights.py
+node --check scripts/rendered_seo_audit.mjs
 ```
 
 Optionally smoke test the bundled helper against a local or disposable static site:

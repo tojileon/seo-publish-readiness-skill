@@ -44,6 +44,25 @@ class SkillDocsTests(unittest.TestCase):
         self.assertIn("Google no longer shows FAQ rich results in Search", docs)
         self.assertIn("must not recommend `FAQPage` JSON-LD for Google rich-result visibility", docs)
 
+    def test_rendered_and_pagespeed_helpers_are_documented(self) -> None:
+        docs = "\n".join(
+            self.read(path)
+            for path in [
+                "SKILL.md",
+                "README.md",
+                "references/advanced-seo-checks.md",
+                "references/static-site-seo-checklist.md",
+                "SMOKE_TEST.md",
+                "CHANGELOG.md",
+            ]
+        )
+
+        self.assertIn("scripts/rendered_seo_audit.mjs", docs)
+        self.assertIn("source-vs-rendered", docs)
+        self.assertIn("desktop-vs-mobile", docs)
+        self.assertIn("scripts/pagespeed_insights.py", docs)
+        self.assertIn("PageSpeed Insights", docs)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -48,6 +48,19 @@ scripts/static_seo_audit.py https://example.com/ --max-pages 12
 scripts/static_seo_audit.py https://example.com/ --max-pages 12 --format json
 ```
 
+If the helper reports JavaScript app signals, or if route metadata/content is set client-side, run the rendered/mobile helper when Playwright is available:
+
+```bash
+node scripts/rendered_seo_audit.mjs https://example.com/ --format json
+```
+
+If page experience or Core Web Vitals are part of the launch decision, run PageSpeed evidence on the highest-priority templates:
+
+```bash
+python3 scripts/pagespeed_insights.py https://example.com/ --strategy mobile
+python3 scripts/pagespeed_insights.py https://example.com/ --strategy desktop
+```
+
 Then run targeted checks against any URLs the helper does not cover:
 
 ```bash

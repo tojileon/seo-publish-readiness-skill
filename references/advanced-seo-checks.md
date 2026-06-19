@@ -17,6 +17,8 @@ Use this reference when the site is JavaScript-heavy, mobile-sensitive, multilin
 ## Rendered DOM And JavaScript
 
 - Compare server HTML with rendered HTML when the site uses React, Vue, Svelte, client-side routing, personalization, or delayed content loading.
+- Prefer the optional rendered helper when Playwright is available:
+  `node scripts/rendered_seo_audit.mjs https://example.com/ --format json`
 - Important content, internal links, title, meta description, canonical URL, robots directives, and structured data should be visible in the HTML Google can render.
 - Do not rely on buttons, form submissions, search boxes, or JavaScript-only click handlers for discovery of core indexable pages.
 - If source and rendered DOM differ, cite both surfaces in findings and mark the live indexability risk explicitly.
@@ -25,6 +27,7 @@ Use this reference when the site is JavaScript-heavy, mobile-sensitive, multilin
 ## Mobile-First Indexing
 
 - Check the mobile viewport, not only desktop screenshots.
+- Use rendered-helper output or browser evidence to compare desktop and mobile title, description, canonical, robots meta, H1s, JSON-LD, body text length, and crawlable same-origin links.
 - Mobile content should include the same primary text, links, media, structured data, robots directives, titles, descriptions, and canonicals expected for indexing.
 - If separate mobile URLs exist, verify redirects, `rel=canonical`, `rel=alternate`, and sitemap entries across the desktop/mobile pair.
 - Avoid URL fragments for core mobile pages because fragment-only states are not reliable indexable URLs.
@@ -32,6 +35,9 @@ Use this reference when the site is JavaScript-heavy, mobile-sensitive, multilin
 ## Page Experience And Core Web Vitals
 
 - Treat Core Web Vitals as a user-experience and launch-readiness input, not as a guaranteed ranking lever.
+- For public URLs, use the PageSpeed helper when network access is available:
+  `python3 scripts/pagespeed_insights.py https://example.com/ --strategy mobile`
+- If the unauthenticated PageSpeed API quota is blocked, retry with `--api-key` or use the PageSpeed Insights web UI and cite the result manually.
 - Check LCP, INP, and CLS for representative page templates when tooling is available through Lighthouse, PageSpeed Insights, Chrome UX Report, Search Console, or local browser traces.
 - Flag SEO-relevant causes rather than just scores: oversized hero images, render-blocking assets, client-only content delays, layout shifts around media or ads, slow third-party scripts, and heavy hydration.
 - Also check HTTPS, mobile usability, intrusive interstitials, and obviously broken rendering.

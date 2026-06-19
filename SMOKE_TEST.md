@@ -132,11 +132,28 @@ Use $seo-publish-readiness to review a React landing page where titles, canonica
 Expected behavior:
 
 - Compare source HTML with rendered DOM when browser tooling is available.
+- Prefer `node scripts/rendered_seo_audit.mjs <url> --format json` when Playwright is available.
 - Check direct deep links, not only in-app navigation after the homepage loads.
 - Check the mobile viewport or explicitly mark mobile-first indexing checks unverified.
 - Report Core Web Vitals/page-experience concerns as launch-readiness risks without promising ranking gains.
 
-## 10. Vertical-Specific Structured Data
+## 10. PageSpeed Evidence
+
+Prompt:
+
+```text
+Use $seo-publish-readiness to audit a public app landing page and include PageSpeed/Core Web Vitals evidence.
+```
+
+Expected behavior:
+
+- Run `python3 scripts/pagespeed_insights.py <url> --strategy mobile` when network access is available.
+- Use desktop PageSpeed evidence too when desktop experience is materially different or the user asks for it.
+- Separate PageSpeed field data from Lighthouse lab data.
+- Label unavailable field data, API failures, or missing Search Console Core Web Vitals data as `Remaining concern` items, not source-code defects.
+- Do not promise ranking gains from a score improvement.
+
+## 11. Vertical-Specific Structured Data
 
 Prompt:
 
@@ -151,7 +168,7 @@ Expected behavior:
 - Do not use generic `Organization`/`WebSite` advice as a substitute for product-page checks.
 - Flag faceted navigation, variants, sort parameters, or pagination as crawl/canonical risks when present.
 
-## 11. Helper Unit Tests
+## 12. Helper Unit Tests
 
 Prompt:
 
@@ -162,5 +179,7 @@ Use $seo-publish-readiness to maintain the bundled static SEO audit helper after
 Expected behavior:
 
 - Run `python3 -m unittest tests/test_static_seo_audit.py`.
+- Run `python3 -m py_compile scripts/static_seo_audit.py scripts/pagespeed_insights.py` after Python helper changes.
+- Run `node --check scripts/rendered_seo_audit.mjs` after rendered-helper changes.
 - Keep tests standard-library only.
 - Cover at least parser extraction, sitemap-index recursion, and robots rule evaluation when those behaviors change.
