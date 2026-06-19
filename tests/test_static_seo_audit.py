@@ -143,6 +143,41 @@ class StaticSeoAuditTests(unittest.TestCase):
             ]
         )
 
+    def test_image_alt_warning_preserves_decorative_duplicate_distinction(self) -> None:
+        report = static_seo_audit.PageReport(
+            url="https://example.com/",
+            final_url="https://example.com/",
+            status=200,
+            content_type="text/html",
+            title="Example",
+            meta_description="Example page.",
+            robots_meta=None,
+            x_robots_tag=None,
+            robots_txt_allowed={"CodexSEOAudit": True, "Googlebot": True},
+            canonical="https://example.com/",
+            viewport="width=device-width, initial-scale=1",
+            open_graph={"og:title": "Example"},
+            twitter={"twitter:card": "summary_large_image"},
+            json_ld_blocks=0,
+            json_ld_invalid=0,
+            json_ld_types=[],
+            hreflang_links=[],
+            h1s=["Example"],
+            images_total=3,
+            images_missing_alt=2,
+            same_origin_links=[],
+            same_origin_assets=[],
+            scripts_total=0,
+            app_root_signals=[],
+        )
+
+        static_seo_audit.add_page_warnings(report, "https://example.com/")
+
+        warning = " ".join(report.warnings)
+        self.assertIn("empty or missing alt", warning)
+        self.assertIn("informative product-proof images", warning)
+        self.assertIn("decorative or duplicate images can intentionally remain empty", warning)
+
 
 if __name__ == "__main__":
     unittest.main()

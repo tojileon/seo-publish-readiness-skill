@@ -63,6 +63,21 @@ class SkillDocsTests(unittest.TestCase):
         self.assertIn("scripts/pagespeed_insights.py", docs)
         self.assertIn("PageSpeed Insights", docs)
 
+    def test_image_alt_guidance_distinguishes_informative_and_decorative_images(self) -> None:
+        docs = "\n".join(
+            self.read(path)
+            for path in [
+                "SKILL.md",
+                "references/static-site-seo-checklist.md",
+                "references/search-intent-expansion.md",
+                "SMOKE_TEST.md",
+            ]
+        )
+
+        self.assertIn("important product-proof images", docs)
+        self.assertIn("decorative or duplicate", docs)
+        self.assertIn("avoid screen-reader repetition", docs)
+
 
 if __name__ == "__main__":
     unittest.main()

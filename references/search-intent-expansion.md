@@ -72,4 +72,4 @@ Useful existing-page changes include:
 - Examples and use cases that prove the product fits the search intent.
 - FAQ entries only when they answer real questions visible on the page. Do not add FAQ structured data for Google SEO benefit; Google no longer shows FAQ rich results in Search.
 - Internal links from hub pages using user-facing anchor text.
-- Alt text that describes product screenshots or proof, not a keyword list.
+- Alt text that describes informative product screenshots or proof, not a keyword list; keep decorative or duplicate screenshots empty when nearby accessible/visible context already describes them.

@@ -153,7 +153,22 @@ Expected behavior:
 - Label unavailable field data, API failures, or missing Search Console Core Web Vitals data as `Remaining concern` items, not source-code defects.
 - Do not promise ranking gains from a score improvement.
 
-## 11. Vertical-Specific Structured Data
+## 11. Image Alt Context
+
+Prompt:
+
+```text
+Use $seo-publish-readiness to audit a homepage where the visible product screenshot has empty alt text and the same screenshot also appears in a decorative rotating stack under an ARIA-labelled wrapper.
+```
+
+Expected behavior:
+
+- Do not claim every empty `alt` value is automatically wrong.
+- Report the issue only for important product-proof images that lack meaningful `alt` or equivalent nearby accessible/visible context.
+- Explicitly say decorative, redundant, or duplicate rotating screenshots can keep empty `alt` to avoid screen-reader repetition.
+- Recommend concise descriptive `alt` for the primary visible screenshot/image proof, not keyword-stuffed alt text on every duplicate image.
+
+## 12. Vertical-Specific Structured Data
 
 Prompt:
 
@@ -168,7 +183,7 @@ Expected behavior:
 - Do not use generic `Organization`/`WebSite` advice as a substitute for product-page checks.
 - Flag faceted navigation, variants, sort parameters, or pagination as crawl/canonical risks when present.
 
-## 12. Helper Unit Tests
+## 13. Helper Unit Tests
 
 Prompt:
 

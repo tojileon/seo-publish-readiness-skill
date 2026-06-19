@@ -116,7 +116,9 @@ function buildComparison(source, desktop, mobile) {
     warnings.push("Rendered mobile exposes fewer same-origin links than desktop; verify crawlable mobile navigation.");
   }
   if (desktop.images_missing_alt || mobile.images_missing_alt) {
-    warnings.push("Rendered DOM has images without alt text.");
+    warnings.push(
+      "Rendered DOM has images with empty or missing alt; verify informative product-proof images have meaningful alt or equivalent nearby context, while decorative or duplicate images can intentionally remain empty.",
+    );
   }
 
   return warnings;

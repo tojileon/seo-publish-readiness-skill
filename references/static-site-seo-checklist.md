@@ -27,7 +27,8 @@ Each indexable page should have:
 - One clear H1.
 - Self-referencing canonical.
 - Useful internal links to related pages.
-- Image alt text for informative images.
+- Image alt text for informative images and product-proof screenshots, or equivalent nearby accessible/visible context when an image is already described.
+- Empty `alt` is acceptable for decorative, redundant, or duplicate rotating screenshots when repeating the text would make the page noisier for screen-reader users.
 - Open Graph and Twitter metadata for share previews.
 - JSON-LD only when it accurately matches visible page content or public entity identity.
 
@@ -122,6 +123,7 @@ Report which templates were checked and which were not. Do not imply full-site c
 - Canonical tags point at extensionless URLs while all public links use `.html`, or the reverse.
 - Pages return `200` and appear in the sitemap but carry an accidental `noindex` directive.
 - Internal links use vague labels like "landing page" instead of user-facing destination names.
+- An image audit treats all empty `alt` values as defects, instead of separating informative product-proof screenshots from decorative or duplicate images that should stay empty.
 - Structured data exists on one page but not on legal, product, or focused pages where it would help understanding.
 - The source is fixed but the CDN still serves stale HTML.
 - The live site exposes local OS metadata files or helper upload artifacts.

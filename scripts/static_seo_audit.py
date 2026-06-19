@@ -540,7 +540,11 @@ def add_page_warnings(report: PageReport, root_url: str) -> None:
     elif report.canonical != normalize_url(report.final_url):
         report.warnings.append(f"Canonical differs from final URL: {report.canonical}.")
     if report.images_missing_alt:
-        report.warnings.append(f"{report.images_missing_alt} of {report.images_total} images lack alt text.")
+        report.warnings.append(
+            f"{report.images_missing_alt} of {report.images_total} images have empty or missing alt; "
+            "verify informative product-proof images have meaningful alt or equivalent nearby context, "
+            "while decorative or duplicate images can intentionally remain empty."
+        )
     if not report.open_graph:
         report.warnings.append("Missing Open Graph metadata.")
     if not report.twitter:

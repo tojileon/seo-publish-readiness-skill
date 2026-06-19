@@ -2,6 +2,10 @@
 
 All notable changes to this skill are tracked here.
 
+## 0.4.7 - 2026-06-19
+
+- Clarified image-alt audit wording so findings distinguish informative product-proof images from decorative or duplicate screenshots that can intentionally keep empty `alt`.
+
 ## 0.4.6 - 2026-06-19
 
 - Added `scripts/rendered_seo_audit.mjs`, an optional Playwright helper for source-vs-rendered and desktop-vs-mobile SEO surface checks.

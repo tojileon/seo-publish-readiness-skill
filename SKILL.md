@@ -50,7 +50,7 @@ Use this skill to turn SEO requests into evidence-backed fixes or a prioritized 
 4. Review on-page search signals.
    - One clear H1 per page, useful title, useful meta description, self-referencing canonical, and meaningful Open Graph/Twitter metadata.
    - Headings should match user intent, not just product slogans.
-   - Image alt text should describe the real image and product proof; avoid keyword stuffing.
+   - Image alt text should describe informative images and real product proof; avoid keyword stuffing. When reporting missing or empty `alt`, distinguish important product-proof images from decorative, redundant, or ARIA-described duplicate screenshots that may correctly use empty `alt`.
    - Link labels should describe the destination in user language, not internal labels like "landing page" when a clearer phrase exists.
 
 5. Expand search intent and content fit.
@@ -95,6 +95,8 @@ For actionable findings, include:
 - `Impact`: why it matters for crawling, indexing, ranking context, accessibility, or click-through.
 - `Fix`: concrete action.
 - `Verify`: exact check after the fix.
+
+For image-alt findings, do not imply every empty `alt` is defective. Frame the issue around whether important product-proof images have meaningful `alt` or equivalent nearby accessible/visible context, while decorative or duplicate images can remain empty to avoid repetitive screen-reader output.
 
 For remaining concerns, use:
 

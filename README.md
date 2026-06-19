@@ -4,7 +4,7 @@ A Codex skill for practical SEO publish-readiness checks, Google indexing readin
 
 The skill is designed for product sites, app landing pages, documentation sites, and static marketing sites. It turns SEO requests into source-backed and live-site-backed findings instead of generic advice.
 
-Current version: `0.4.6`. See [CHANGELOG.md](CHANGELOG.md) for release notes.
+Current version: `0.4.7`. See [CHANGELOG.md](CHANGELOG.md) for release notes.
 
 ## Installation
 
